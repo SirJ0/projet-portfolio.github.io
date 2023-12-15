@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="google-site-verification" content="HNYFjPtA9XxhEYsIgJgOJcQJ1nd2Ylvz960ElR9D7JE" />
-  <title>vCard - Personal projets</title>
+  <title>Portfolio Joris</title>
 
   <!--
     - favicon
@@ -42,13 +42,14 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Richard hanrick" width="80">
+          <img src="./assets/images/my-avatar.png" alt="" width="80">
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Joris Cadilhac</h1>
+          <h1 class="name" title="">Joris Cadilhac</h1>
 
           <p class="title">Développeur</p>
+          
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
@@ -115,11 +116,27 @@
 
             <div class="contact-info">
               <p class="contact-title">Adresse</p>
-
-              <address>22 rue des crochets, 07430, saint-clair</address>
-            </div>
-
+              <address>
+                <a style="color:white" href="https://www.google.com/maps/search/?api=1&query=22+rue+des+crochets,+07430,+Saint-Clair" target="_blank"> 22 rue des crochets, 07430, saint-clair</a>
+              </address>
+          </div>
           </li>
+          
+          <div class="separator"></div>
+<!-- 
+          <div class="reseaux">
+            <p style="color: white;" align="center">Réseaux sociaux </p>
+          </div> -->
+
+      
+          <!-- <li class="contact-item">
+            <div class="icon-box">
+              <a href="https://www.linkedin.com/in/joris-cadilhac-5b160626b/" target="_blank" style="color: var(--orange-yellow-crayola); transition: color 0.1s;" onmouseover="this.style.color='grey'" onmouseout="this.style.color='var(--orange-yellow-crayola)'">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </div>
+          </li>
+           -->
 
         </ul>
 
@@ -195,12 +212,9 @@
 
 
 
-
-
       <!--
         - #info
       -->
-
       <article class="info  active" data-page="info">
 
         <header>
@@ -236,7 +250,7 @@
               </div>
 
               <div align="justify" class="service-content-box">
-                <h4 class="h4 service-item-title">Design Web</h4>
+                <h4 class="h4 service-item-title"><a style="color: white; transition: color 0.2s;" onmouseover="this.style.color='hsl(0, 0%, 54%)'" onmouseout="this.style.color='white'" href="https://www.figma.com/community/file/1316415022017391931/portfolio-joris" target="_blank">Design WEB</h4></a>
 
                 <p class="service-item-text">
                   Je suis qualifié dans le design WEB notament sur le site Figma.
@@ -268,10 +282,10 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">IA</h4>
+                <h4 class="h4 service-item-title"><a style="color: white; transition: color 0.2s;" onmouseover="this.style.color='hsl(0, 0%, 54%)'" onmouseout="this.style.color='white'" href="http://127.0.0.1:5500/iagame.html" target="_blank">IA</a></h4>
 
                 <p align="justify" class="service-item-text">
-                  J'aime bien me tenir au courant sur les nouvelles IAs et mène des projets que vous retrouverez dans la page veille
+                  J'aime bien me tenir au courant sur les nouvelles IAs et mener des projets que vous retrouverez dans la page projets
                 </p>
               </div>
 
@@ -297,7 +311,7 @@
               <div class="content-card" data-testimonials-item>
 
                 <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+                  <img src="./assets/images/avatar-1.png" alt="" width="60" data-testimonials-avatar>
                 </figure>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Jonathan Chaffanjon</h4>
@@ -331,7 +345,7 @@
 
             <div class="modal-img-wrapper">
               <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                <img src="./assets/images/avatar-1.png" alt="" width="80" data-modal-img>
               </figure>
 
               <img src="./assets/images/icon-quote.svg" alt="quote icon">
@@ -339,7 +353,7 @@
 
             <div class="modal-content">
 
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+              <h4 class="h3 modal-title" data-modal-title></h4>
 
               <!-- <time datetime="2021-06-14">7 juin 2005</time> -->
 
@@ -389,38 +403,37 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Collège Notre Dame</h4>
+              <h4 class="h4 timeline-item-title">Collège Notre Dame Annonay</h4>
 
               <span>2016 — 2020</span>
 
               <p class="timeline-text">
-                Collège Notre-Dame Annonay, obtention du brevet avec mention bien.
+                Obtention du brevet avec mention bien.
               </p>
 
             </li>
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Lycée Marc Seguin</h4>
+              <h4 class="h4 timeline-item-title">Lycée Marc Seguin Annonay</h4>
 
               <span>2020 — 2023</span>
 
               <p class="timeline-text">
-                Lycée Marc Seguin Annonay, obtention du BAC Professionnel Système Numérique (SN) option RISC (Reseau Informatique Systeme Communicant)
+              Obtention du BAC Professionnel Système Numérique (SN) option RISC (Reseau Informatique Systeme Communicant)
               </p>
 
             </li>
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Etudes Supérieurs</h4>
+              <h4 class="h4 timeline-item-title">Lycée et Institut Supérieur Saint-Denis Annonay</h4>
 
               <span>2023 — 2025</span>
 
               <p class="timeline-text">
                 
-                Lycée et Institut Supérieur Saint-Denis Annonay, BTS SIO SISR (Services Informatiques
-                Aux Organisations) en cours.
+                BTS SIO SISR (Services Informatiques Aux Organisations), en cours.
               </p>
 
             </li>
@@ -605,7 +618,7 @@
      
 
             <li class="project-item  active" data-filter-item data-category="All">
-              <a href="./Rapport_de_synthèse.pdf">
+              <a href="./Rapport_de_synthèse.pdf" target="_blank">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -618,6 +631,24 @@
                 <h3 class="project-title"><a href="./Rapport_de_synthèse.pdf" target="_blank">projets Stable Diffusion</a></h3>
                 
                 <p class="project-category">IA</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="All">
+              <a href="./logo .pdf" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/logo_illustration.jpg" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title"><a href="./logo .pdf" target="_blank">projets Création Logo</a></h3>
+                
+                <p class="project-category"></p>
 
               </a>
             </li>
@@ -649,7 +680,7 @@
           <ul class="veille-posts-list">
 
             <li class="veille-post-item">
-              <a href="https://sites.google.com/view/veille-ia-joris/accueil">
+              <a href="https://sites.google.com/view/veille-ia-joris/accueil" target="_blank">
 
                 <figure class="veille-banner-box">
                   <img src="./assets/images/veille.PNG" alt="Design conferences in 2022" loading="lazy">

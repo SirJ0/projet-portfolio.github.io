@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Exercices sur le langage HTML</title>
+</head>
+<body>
+  <div id="exercises">
+    <button id="startButton">Commencer les exercices</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+/* Styles pour centrer et styliser l'exercice */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(240, 2%, 13%);
+  height: 100vh;
+  margin: 0;
+}
+
+#exercises {
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: hsl(0, 0%, 22%);
+}
+
+.exercise {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+/* Styles pour les exercices de test de connaissance */
+.exercise {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+input {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+
+</style>
+<script>
+const exercises = [
+  {
+    question: 'Quel élément sert à indiquer le titre d\'un document HTML ?',
+    answer: 'title',
+    language: 'HTML'
+  },
+  {
+    question: 'Comment insérer une image dans une page HTML ?',
+    answer: '<img src="nom_fichier.jpg" alt="Texte alternatif">',
+    language: 'HTML'
+  },
+  // ... Autres exercices ici
+];
+
+let currentExerciseIndex = 0;
+
+document.getElementById('startButton').addEventListener('click', () => {
+  displayExercise(currentExerciseIndex);
+});
+
+function displayExercise(index) {
+  const exerciseContainer = document.getElementById('exercises');
+  exerciseContainer.innerHTML = ''; // Effacer le contenu précédent
+
+  const exercise = exercises[index];
+  const exerciseDiv = document.createElement('div');
+  exerciseDiv.classList.add('exercise');
+
+  const questionElement = document.createElement('p');
+  questionElement.textContent = exercise.question;
+
+  const input = document.createElement('input');
+  input.setAttribute('type', 'text');
+
+  const validateButton = document.createElement('button');
+  validateButton.textContent = 'Valider';
+
+  validateButton.addEventListener('click', () => {
+    const userAnswer = input.value.trim();
+    if (userAnswer.toLowerCase() === exercise.answer.toLowerCase()) {
+      // Réponse correcte
+      if (currentExerciseIndex < exercises.length - 1) {
+        currentExerciseIndex++;
+        displayExercise(currentExerciseIndex); // Afficher le prochain exercice
+      } else {
+        exerciseContainer.innerHTML = '<p>Bravo ! Vous avez terminé tous les exercices.</p>';
+      }
+    } else {
+      alert('Désolé, votre réponse est incorrecte. Veuillez réessayer.');
+    }
+  });
+
+  input.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      validateButton.click(); // Cliquer sur le bouton valider quand la touche "Entrée" est enfoncée
+    }
+  });
+
+  exerciseDiv.appendChild(questionElement);
+  exerciseDiv.appendChild(input);
+  exerciseDiv.appendChild(validateButton);
+
+  exerciseContainer.appendChild(exerciseDiv);
+}
+
+
+</script>

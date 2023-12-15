@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Quiz sur les IA</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    /* Les styles CSS restent inchangés */
+  </style>
+</head>
+<body>
+  <a href="index.html" style="position: absolute; top: 10px; left: 10px;">
+    <button style="padding: 10px 20px; font-size: 16px; background-color: hsl(240, 2%, 12%); color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+      Retour au Portfolio
+    </button>
+  </a>
+  <div class="container">
+    <h1 style="color: hsl(35, 100%, 68%) ;">Quiz sur les IA</h1>
+    <p style="color: white; margin-bottom: 0;">Devinez si la déclaration sur l'IA est vraie ou fausse en tapant "vrai" ou "faux" !</p>
+    <div id="gameArea">
+      <p>
+        <span id="questionCounter" class="question-counter" style="color: white; font-weight: bold;"></span>
+        <strong style="color: rgb(215, 214, 214)" id="statement"></strong>
+      </p>
+      <input type="text" id="userInput">
+      <button onclick="checkAnswer()" style="transition: background-color 0.4s, color 0.3s;">Vérifier</button>
+    </div>
+  </div>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: hsl(240, 2%, 13%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  
+    .container {
+      text-align: center;
+      background-color: hsl(0, 0%, 22%);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    h1 {
+      color: #007bff;
+    }
+  
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      background-color : hsl(240, 2%, 12%);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+  
+    button:hover {
+      background-color: hsl(35, 100%, 68%);
+      color : hsl(240, 2%, 12%);
+    }
+  
+    input {
+      padding: 8px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    #gameArea {
+  position: relative; /* Ajoutez cette propriété au conteneur parent */
+    }
+    
+
+    .question-counter {
+      background-color: hsl(35, 100%, 68%);
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      bottom: 160px; /* Ajustez cette valeur pour l'espacement vertical par rapport à la déclaration */
+      left: 510px; /* Ajustez cette valeur pour l'espacement horizontal par rapport à la déclaration */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      padding: 2%;
+    }
+
+
+
+    
+
+  </style>
+<script>
+  const statements = [
+    "Les IA peuvent apprendre de nouvelles tâches par elles-mêmes.",
+    "Les IA sont capables de ressentir des émotions.",
+    "Les IA peuvent prendre des décisions éthiques de la même manière que les humains.",
+    "Les IA peuvent contrôler le monde.",
+    "Les IA peuvent comprendre et interagir en langage naturel.",
+    "Les IA peuvent surpasser l'intelligence humaine.",
+    "Les IA peuvent fonctionner sans accès à internet.",
+    "Les IA peuvent être créatives comme les artistes humains.",
+    "Les IA peuvent automatiser des tâches répétitives.",
+    "Les IA peuvent diagnostiquer des maladies avec plus de précision que les médecins humains.",
+    "Les IA peuvent créer des contenus artistiques de qualité.",
+    "Les IA peuvent résoudre des problèmes complexes de mathématiques.",
+    "Les IA peuvent comprendre le sarcasme et l'ironie.",
+    "Les IA peuvent prévoir l'avenir avec précision.",
+    "Les IA peuvent se reproduire par elles-mêmes.",
+    "Les IA peuvent voyager dans le temps.",
+    "Les IA peuvent prendre le contrôle de l'humanité.",
+    "Les IA peuvent être conscientes d'elles-mêmes.",
+    "Les IA peuvent cuisiner des plats délicieux.",
+    "Les IA peuvent éprouver de la compassion pour les êtres vivants.",
+    // Ajoutez davantage de déclarations sur les IA
+  ];
+  
+  const totalStatements = statements.length; // Compte le nombre total de questions
+  
+  const answers = [
+    true,
+    false,
+    false,
+    false,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    // Ajoutez la réponse correcte pour chaque déclaration
+  ];
+  
+  let currentStatement = 0;
+  let score = 0; // Variable pour suivre le nombre de bonnes réponses
+
+  function showNextQuestion() {
+    document.getElementById('statement').textContent = statements[currentStatement]; 
+    document.getElementById('questionCounter').textContent = (currentStatement + 1) + " / " + totalStatements;
+    document.getElementById('questionCounter').style.color = "black";
+  }
+  
+  window.onload = showNextQuestion;
+  
+  function checkAnswerAndProceed() {
+    const userInput = document.getElementById('userInput').value;
+    const isAnswerCorrect = (userInput.toLowerCase() === (answers[currentStatement] ? 'vrai' : 'faux'));
+
+    if (isAnswerCorrect) {
+      score++; // Incrémente le score si la réponse est correcte
+      Swal.fire('Correct !', '', 'success');
+    } else {
+      Swal.fire('Faux', 'La réponse correcte est ' + (answers[currentStatement] ? 'vrai' : 'faux'), 'error');
+    }
+
+    nextStatementOrEndGame();
+  }
+
+  function nextStatementOrEndGame() {
+    currentStatement++;
+    document.getElementById('userInput').value = "";
+    if (currentStatement < totalStatements) {
+      showNextQuestion();
+    } else {
+      if (currentStatement === totalStatements) {
+        let message = 'Votre note est ' + score + '/' + totalStatements;
+        Swal.fire('Jeu terminé !', message, 'info');
+      }
+    }
+  }
+
+  document.getElementById('userInput').addEventListener('keyup', function(event) {
+    if (event.keyCode === 13) {
+      checkAnswerAndProceed();
+    }
+  });
+
+  function checkAnswer() {
+    checkAnswerAndProceed();
+  }
+  
+  if (score > 15) {
+  const confettiSettings = { target: 'my-canvas' };
+  const confetti = new ConfettiGenerator(confettiSettings);
+  confetti.render();
+}
+
+  
+  </script>
