@@ -165,9 +165,11 @@ body { background: var(--smoky-black); }
   #REUSED STYLE
 \*-----------------------------------*/
 
-.linkedin {
-	width: 500px;
+.linkedin-icon {
+    width: 50px;
+    height: auto; /* Pour maintenir le ratio de l'image */
 }
+
 
 .sidebar,
 article {
