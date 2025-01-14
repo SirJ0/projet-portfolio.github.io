@@ -166,9 +166,9 @@ body { background: var(--smoky-black); }
 \*-----------------------------------*/
 
 .linkedin-icon {
+   position: relative;
     width: 50px;
-    height: auto; 
-    left: 20px;
+    left: 70px;
 }
 
 
