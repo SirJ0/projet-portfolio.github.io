@@ -166,8 +166,10 @@ body { background: var(--smoky-black); }
 \*-----------------------------------*/
 
 .linkedin-icon {
-    width: 20px;
-    height: auto; /* Pour maintenir le ratio de l'image */
+    width: 50px;
+    height: auto; 
+    display: block;
+    margin: 0 auto;
 }
 
 
