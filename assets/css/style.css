@@ -167,9 +167,17 @@ body { background: var(--smoky-black); }
 
 .linkedin-icon {
    position: relative;
-    width: 50px;
-    left: 70px;
+    width: 70px;
+    left: 60px;
 }
+
+
+.linkedin-icon img:hover { 
+  transition: transform .2s;
+  -ms-transform: scale(1.5); /* IE 9 */
+-webkit-transform: scale(1.5); /* Safari 3-8 */
+transform: scale(1.2);
+ }
 
 
 .sidebar,
@@ -1817,7 +1825,8 @@ textarea.form-input::-webkit-resizer { display: none; }
     background: hsla(0, 0%, 100%, 0.1);
     border-radius: 20px;
     box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
-                inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
+                inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);      
+        
   }
 
   body::-webkit-scrollbar-thumb:hover { background: hsla(0, 0%, 100%, 0.15); }
