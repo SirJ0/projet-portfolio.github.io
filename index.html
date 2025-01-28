@@ -10,7 +10,7 @@
   <!--
     - favicon
   -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/images/logo.jpg" type="image/x-icon">
 
   <!--
     - custom css link
@@ -765,7 +765,7 @@
               <a href="https://sites.google.com/view/veille-ia-joris/accueil" target="_blank">
 
                 <figure class="veille-banner-box">
-                  <img src="./assets/images/veille.PNG" alt="Design conferences in 2022" loading="lazy">
+                  <img src="./assets/images/veille.jpg" alt="Design conferences in 2022" loading="lazy">
                 </figure>
 
                 <div class="veille-content">
@@ -833,43 +833,70 @@
         </section>
         
         <script>
-
-            document.addEventListener('DOMContentLoaded', function() {
+          document.addEventListener('DOMContentLoaded', function() {
               // Sélectionner le bouton "Envoyer"
               var boutonEnvoyer = document.getElementById('boutonEnvoyer');
-
+      
               // Ajouter un gestionnaire d'événement de clic au bouton "Envoyer"
               boutonEnvoyer.addEventListener('click', function(event) {
-                event.preventDefault(); // Empêcher l'envoi du formulaire par défaut
-
-                // Récupérer le contenu de la case input mail
-                var adresseMail = document.querySelector('input[name="email"]').value;
-
-                // Récupérer le contenu du message
-                var contenuMessage = document.querySelector('textarea[name="message"]').value;
-
-                // Récupérer le contenu de la case "Nom et Prénom"
-                var nomPrenom = document.querySelector('input[name="fullname"]').value;
-
-                // Récupérer l'extension de l'adresse e-mail
-                var extension = adresseMail.split('@')[1];
-
-                // Ouvrir le client de messagerie approprié en fonction de l'extension et inclure le contenu du message
-                if (extension === 'outlook.com') {
-                  window.location.href = 'mailto:' + adresseMail + '?subject=' + nomPrenom + '&body=' + contenuMessage;
-                } else if (extension === 'gmail.com') {
-                  window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + adresseMail + '&su=' + nomPrenom + '&body=' + contenuMessage);
-                } else if (extension === 'protonmail.com') {
-                  window.open('https://mail.protonmail.com/create/new?to=' + adresseMail + '&subject=' + nomPrenom + '&body=' + contenuMessage);
-                } else {
-                  // Rediriger automatiquement vers Gmail si l'extension n'est pas reconnue
-                  window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + adresseMail + '&su=' + nomPrenom + '&body=' + contenuMessage);
-                }
+                  event.preventDefault(); // Empêcher l'envoi du formulaire par défaut
+      
+                  // Récupérer les valeurs des champs
+                  var adresseMail = document.querySelector('input[name="email"]').value;
+                  var contenuMessage = document.querySelector('textarea[name="message"]').value;
+                  var nomPrenom = document.querySelector('input[name="fullname"]').value;
+      
+                  // Récupérer l'extension de l'adresse e-mail
+                  var extension = adresseMail.split('@')[1];
+      
+                  // Encoder les données pour les insérer dans l'URL
+                  var encodedSubject = encodeURIComponent(nomPrenom);
+                  var encodedBody = encodeURIComponent(contenuMessage);
+      
+                  // Ouvrir le client de messagerie approprié en fonction de l'extension
+                  switch (extension) {
+                      case 'outlook.com':
+                      case 'hotmail.com':
+                          window.location.href = 'mailto:' + adresseMail + '?subject=' + encodedSubject + '&body=' + encodedBody;
+                          break;
+                      case 'gmail.com':
+                          window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + adresseMail + '&su=' + encodedSubject + '&body=' + encodedBody);
+                          break;
+                      case 'protonmail.com':
+                          window.open('https://mail.protonmail.com/create/new?to=' + adresseMail + '&subject=' + encodedSubject + '&body=' + encodedBody);
+                          break;
+                      case 'yahoo.com':
+                      case 'ymail.com':
+                          window.open('https://compose.mail.yahoo.com/?to=' + adresseMail + '&subject=' + encodedSubject + '&body=' + encodedBody);
+                          break;
+                      case 'icloud.com':
+                          window.location.href = 'mailto:' + adresseMail + '?subject=' + encodedSubject + '&body=' + encodedBody;
+                          break;
+                      case 'zoho.com':
+                          window.open('https://mail.zoho.com/zm/#compose?to=' + adresseMail + '&subject=' + encodedSubject + '&body=' + encodedBody);
+                          break;
+                      case 'aol.com':
+                          window.open('https://mail.aol.com/webmail-std/en-us/compose?to=' + adresseMail + '&subject=' + encodedSubject + '&body=' + encodedBody);
+                          break;
+                      case 'gmx.com':
+                      case 'gmx.net':
+                          window.open('https://www.gmx.com/mail/client/mailto.html?to=' + adresseMail + '&subject=' + encodedSubject + '&body=' + encodedBody);
+                          break;
+                      case 'mail.com':
+                          window.open('https://www.mail.com/mail/create-email.html?to=' + adresseMail + '&subject=' + encodedSubject + '&body=' + encodedBody);
+                          break;
+                      case 'tutanota.com':
+                          window.open('https://mail.tutanota.com/#compose?to=' + adresseMail + '&subject=' + encodedSubject + '&body=' + encodedBody);
+                          break;
+                      default:
+                          // Rediriger automatiquement vers Gmail si l'extension n'est pas reconnue
+                          window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + adresseMail + '&su=' + encodedSubject + '&body=' + encodedBody);
+                  }
               });
-            });
+          });
+      </script>
+      
 
-
-        </script>
 
       </article>
 
